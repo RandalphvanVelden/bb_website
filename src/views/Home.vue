@@ -8,7 +8,7 @@
 
 
 export default {
-  import gql from 'graphql-tag'
+  import gql from 'graphql-tag',
   apollo:{ gql` teams{
     id
     teamName
