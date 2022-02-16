@@ -1,26 +1,9 @@
 <template>
-  <div class="home">
-    
-  </div>
+
+<router-link :to="'/teams'">Teams</router-link>
 </template>
 
+
 <script>
-
-
-export default {
-  import gql from 'graphql-tag',
-  apollo:{ gql` teams{
-    id
-    teamName
-    user{
-      name
-    }
-    players{
-      playerNr
-      playerName
-    }
-  }`
-}
-
 
 </script>

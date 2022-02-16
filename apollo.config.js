@@ -2,9 +2,9 @@
 module.exports = {
     client: {
       service: {
-        name: 'my-app',
+        name: 'bb-website',
         // URL to the GraphQL API
-        url: 'http://localhost:8000/graphql',
+        url: 'http://127.0.0.1:8000/graphql',
       },
       // Files processed by the extension
       includes: [
