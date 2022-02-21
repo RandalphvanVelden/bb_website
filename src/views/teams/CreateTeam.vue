@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="createTeam()">
+    <form @submit.prevent="teamCreate()">
         <div class:="form-control" >
             <label for="teamName" >Team Name</label>
             <input type="text" id="teamName" v-model.trim="teamName">  
@@ -16,7 +16,7 @@
         <button>Create</button>
     </form>
  
- <button @click="this.$router.replace('/teams')">Terug naar Teams</button>
+ <button @click="returnToTeams">Terug naar Teams</button>
 </template>
 
 <script>
@@ -47,19 +47,29 @@ setup(){
         user_id: userId.value,
         baseTeam: baseTeam.value
         },
+   
     }))
     
     onDone(() =>{
-        this.$router.replace('/teams');
+    
     })
     return{
         teamName,
         userId,
         baseTeam,
         createTeam,
+        
     }
 },
-
+methods:{
+    returnToTeams(){
+        this.$router.replace('/teams')
+    },
+    teamCreate(){
+        this.returnToTeams()
+        this.createTeam()
+    }
+}
 };
 </script>
 <style scoped>

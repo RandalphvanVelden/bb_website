@@ -3,7 +3,7 @@
 <div v-if="loading">Loading...</div>
 <div v-else-if="error">Error {{error.message}}</div>
   <ul v-else-if="teams">
-   <user-team-list v-for="team in teams"
+   <user-team-list @refetchNow="refetch()" v-for="team in teams"
    :key="team.id"
    :teamId="team.id"
    :name="team.teamName"
@@ -12,7 +12,10 @@
    :baseTeam="team.baseTeam">
    </user-team-list>
 </ul>
-<router-link to="/createteam" >add Team</router-link>
+<router-link to="/createteam" >add Team</router-link> 
+<button @click="refetch()">refresh</button>
+
+
 </template>
 
 
@@ -26,7 +29,7 @@ components:{
   UserTeamList
 },
   setup(){
-   const {result, loading, error} = useQuery(gql`
+   const {result, loading, error, refetch} = useQuery(gql`
    query teams{
   teams{
   id
@@ -44,9 +47,12 @@ components:{
       teams,
       loading,
       error,
+      refetch
     }
   },
-   
+   methods:{
+     
+   }
    }
   
 

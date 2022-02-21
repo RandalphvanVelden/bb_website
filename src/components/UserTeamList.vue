@@ -3,7 +3,7 @@
   <li >
     <router-link :to="link">{{name}}</router-link> {{teamId}} {{user}} 
     <router-link :to="updateTeam"> Update</router-link>
-    <button link @click="deleteTeam">Delete</button>
+    <button @click="teamDelete">Delete</button>
   </li>
         
 </template>
@@ -14,6 +14,7 @@ import { useMutation } from '@vue/apollo-composable'
 import gql from 'graphql-tag'
 export default {
     props: [ 'teamId', 'name', 'user', 'userId', 'baseTeam'],
+    emits: [ 'refetchNow'],
     setup(props) {
  const {mutate: deleteTeam} = useMutation(gql`
 mutation deleteTeam($id: ID!) {
@@ -45,5 +46,13 @@ mutation deleteTeam($id: ID!) {
         
   },
   
+  methods: {
+    teamDelete(){
+      if(confirm("Are you sure you want to delete this team")){
+       this.deleteTeam()
+      this.$emit ("refetchNow")
+      }
+  },
+  }
 }
 </script>
