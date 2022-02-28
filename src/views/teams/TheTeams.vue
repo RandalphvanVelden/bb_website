@@ -12,7 +12,7 @@
    :baseTeam="team.baseTeam">
    </user-team-list>
 </ul>
-<router-link to="/createteam" >add Team</router-link> 
+<router-link to="/create_team" >add Team</router-link> 
 <button @click="refetch()">refresh</button>
 
 

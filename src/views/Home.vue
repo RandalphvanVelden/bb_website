@@ -1,6 +1,5 @@
 <template>
-
-<router-link :to="'/teams'">Teams</router-link>
+<h1>Dit is de Home Page</h1>
 </template>
 
 
