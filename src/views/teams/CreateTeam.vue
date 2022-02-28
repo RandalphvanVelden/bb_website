@@ -16,15 +16,19 @@
         <button>Create</button>
     </form>
  
- <button @click="returnToTeams">Terug naar Teams</button>
+ <return-teams-button></return-teams-button>
 </template>
 
 <script>
 import {ref} from 'vue'
 import { useMutation } from '@vue/apollo-composable'
 import gql from 'graphql-tag'
+import ReturnTeamsButton from '../../components/ui/ReturnTeamsButton.vue'
 
 export default {
+    components:{
+        ReturnTeamsButton
+    },
 setup(){
     const teamName = ref('')
     const userId = ref('')
@@ -62,9 +66,7 @@ setup(){
     }
 },
 methods:{
-    returnToTeams(){
-        this.$router.replace('/teams')
-    },
+
     teamCreate(){
         this.returnToTeams()
         this.createTeam()

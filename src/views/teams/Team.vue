@@ -30,6 +30,7 @@
         </tr>
       </tbody>
     </table>
+     <return-teams-button></return-teams-button>
    </div>
 </template>
 
@@ -38,9 +39,13 @@
 import {useQuery, useResult} from '@vue/apollo-composable'
 import gql from 'graphql-tag'
 // import {reactive} from 'vue'
+import ReturnTeamsButton from '../../components/ui/ReturnTeamsButton.vue'
 
 export default {
   props: ['teamId'],
+  components:{
+    ReturnTeamsButton
+  },
   setup(props){
 
     const {result} = useQuery(gql`
