@@ -5,6 +5,8 @@
       <component :is="slotProps.Component"></component>
     </transistion>
   </router-view>
+  <!-- add the following to the <head> in the published view:
+<meta name="csrf-token" content="{{ csrf_token() }}"> -->
 </template>
 
 <script>

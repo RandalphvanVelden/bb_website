@@ -67,6 +67,9 @@ setup(){
 },
 methods:{
 
+returnToTeams(){
+    this.$router.replace('/teams')
+},
     teamCreate(){
         this.returnToTeams()
         this.createTeam()
